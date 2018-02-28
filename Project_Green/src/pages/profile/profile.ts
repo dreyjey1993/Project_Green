@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatabaseServiceProvider } from '../../providers/database-service/database-service';
-import { FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { DatabaseServiceProvider } from '../../providers/database-service/database-service';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { CollectionPage } from '../collection/collection'
 
 /**
@@ -20,9 +18,9 @@ import { CollectionPage } from '../collection/collection'
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-  public uid : FirebaseListObservable<any[]>;
-  public eMail : FirebaseListObservable<any[]>;
-  public displayName : FirebaseListObservable<any[]>;
+  uid : string;
+  eMail : string;
+  displayName : string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: DatabaseServiceProvider, public af: AngularFireAuth, public fb: FormBuilder) {
     this.uid = this.af.auth.currentUser.uid;

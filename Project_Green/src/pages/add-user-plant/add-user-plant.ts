@@ -27,7 +27,7 @@ export class AddUserPlantPage {
   newPlant: Plant = {id: null,name: null,desc: null,lat: null,lng: null,img: null,user_id: null,parent_plant_id: null};
   listMyUserPlants: FirebaseListObservable<any[]>;
   parentplants: FirebaseListObservable<any[]>;
-  uid : FirebaseListObservable<any[]>;
+  uid : string;
   image: string;
   failed_creation: boolean;
   failed_creation_msg: string;
@@ -71,13 +71,11 @@ export class AddUserPlantPage {
    * Add Plant to User-Plant-Database
    */
   public addPlant() {
-    let newID: number = 0;
-    for(let i of this.listMyUserPlants){
-      newID = newID+1;
-    }
-    this.newPlant.id = newID+1;
-    this.newPlant.name = this.form.get('name')._value;
-    this.newPlant.desc = this.form.get('desc')._value;
+    let newID;
+    this.listMyUserPlants.subscribe((resp) => newID = resp.length);
+    this.newPlant.id = String(newID+1);
+    this.newPlant.name = this.form.get('name').value;
+    this.newPlant.desc = this.form.get('desc').value;
 
     this.geolocation.getCurrentPosition().then((resp) => {
       this.newPlant.lat = resp.coords.latitude;
@@ -88,12 +86,18 @@ export class AddUserPlantPage {
       this.failed_creation_msg = error.message;
     });
 
+    if(this.image != null && this.image.length != 0)
+      this.newPlant.img = this.image;
+
     this.newPlant.user_id = this.uid;
 
-    for(let i of this.parentplants){
-      if(this.newPlant.name == i.name)
-        this.newPlant.parent_plant_id = i.id;
-    }
+    this.parentplants.subscribe(resp => {
+      resp.map(one => {
+        if(this.newPlant.name == one.name)
+          this.newPlant.parent_plant_id = one.id;
+        }
+      )
+    });
 
     this.db.addUserPlantToDatabase(this.newPlant);
     this.navCtrl.push(CollectionPage);

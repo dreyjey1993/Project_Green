@@ -3,13 +3,8 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { TabsPage } from '../pages/tabs/tabs';
+//import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
-import { IdentifyPage } from '../pages/identify/identify';
-import { MapPage } from '../pages/map/map';
-import { ProfilePage } from '../pages/profile/profile';
-import { CollectionPage } from '../pages/collection/collection';
-import { DatabasePlantsPage } from '../pages/database-plants/database-plants';
 
 @Component({
   templateUrl: 'app.html'

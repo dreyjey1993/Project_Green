@@ -9,11 +9,7 @@ import { PopoverPage } from '../popover/popover';
 
 //setting stuff
 import { SettingsProvider } from '../../providers/settings/settings';
-
 import { Events } from 'ionic-angular';
-import { Settings } from '../../app/classes/settings';
-import { Storage } from '@ionic/storage';
-
 import * as _ from "lodash";
 
 /**
@@ -55,7 +51,7 @@ export class CollectionPage {
       this.loadMore();
     });
 
-    let plant = new Plant("", "testplant 2", "this is a test plant designed to be found by test@test.com", 21,20,"","-L4LgfHiGJlYmb4KnQIr",null);
+    //let plant = new Plant("", "testplant 2", "this is a test plant designed to be found by test@test.com", 21,20,"","-L4LgfHiGJlYmb4KnQIr",null);
 
     //this.db.addUserPlantToDatabase(plant);
     this.events.subscribe('settings:changed', () => {

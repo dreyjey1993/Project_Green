@@ -8,7 +8,6 @@
 
   <ion-navbar>
     <ion-title text-center>LEXIKON</ion-title>
-    <ion-title>Pflanzen Datenbank</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -25,20 +24,6 @@
   </div>
 
 
-<ion-content padding>
-  <div class="row" style="width: 100%">
-    <div class="col" style="width: 100%">
-      <button ion-button (click)="prevPage()" style="width: 100%">Vorrige</button>
-    </div>
-    <div class="col" style="width: 100%">
-      <button ion-button (click)="nextPage()" style="width: 100%">Nächste</button>
-    </div>
-  </div>
-
-  <ion-item class="text" *ngFor="let item of plants" (click)='itemClicked(item)'>
-      <ion-icon name="flower"></ion-icon>
-      {{item.name}}
-  </ion-item>
 
     <!--<ion-infinite-scroll
     on-infinite="nextPage()"

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ViewController } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 import { TabsPage } from '../tabs/tabs';
-import { ModalController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { DatabaseServiceProvider } from '../../providers/database-service/database-service';
@@ -22,17 +20,16 @@ import { ToastController } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  private form: FormGroup;
-  private failed_login: boolean;
-  private failed_login_msg: string;
+  form: FormGroup;
+  //private failed_login: boolean;
+  //private failed_login_msg: string;
 
-  constructor(public navCtrl: NavController, public db:DatabaseServiceProvider, private viewCtrl : ViewController, private navParams: NavParams,
-              private modalCtrl : ModalController, private auth : AngularFireAuth, private fb: FormBuilder, private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public db:DatabaseServiceProvider, private auth : AngularFireAuth, private fb: FormBuilder, private toastCtrl: ToastController) {
     this.form = fb.group({
       'mail': ['', Validators.compose([Validators.required, Validators.email])],
       'pwd': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
     });
-    this.failed_login = false;
+    //this.failed_login = false;
   }
 
   ionViewDidLoad() {
@@ -46,9 +43,9 @@ export class LoginPage {
     let toast = this.toastCtrl.create({
       message: text,
       position: 'top',
-      duration: '5000',
-      showCloseButton: 'true',
-      dismissOnPageChange: 'true',
+      duration: 5000,
+      showCloseButton: true,
+      dismissOnPageChange: true,
       closeButtonText: 'OK'
     });
 

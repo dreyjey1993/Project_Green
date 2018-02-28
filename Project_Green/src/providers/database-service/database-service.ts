@@ -1,13 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectFactory, FirebaseObjectObservable } from 'angularfire2/database';
-import { query } from '@angular/core/src/animation/dsl';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { User } from '../../app/classes/user';
 import { Plant } from '../../app/classes/plant';
 import { Parent_Plant } from '../../app/classes/parent_plant';
-import { error } from 'util';
-import { DatabaseSnapshot } from 'angularfire2/interfaces';
 //import { database } from 'firebase/app';
 //import { AngularFireModule } from 'angularfire2';
 

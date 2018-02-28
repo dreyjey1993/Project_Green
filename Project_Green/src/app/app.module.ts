@@ -17,13 +17,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { CollectionPage } from '../pages/collection/collection';
 import { AddUserPlantPage } from '../pages/add-user-plant/add-user-plant';
 
-
 //Popoups
-import { UserPlantPage } from '../pages/user-plant/user-plant';
-
-//Popoups
-import { MailAuthPage } from '../pages/mail-auth/mail-auth';
-import { MailCreateAccountPage } from '../pages/mail-create-account/mail-create-account';
 import { PopoverPage } from '../pages/popover/popover';
 
 //misc
@@ -31,9 +25,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 //Firebase and Database stuff
-import { Firebase } from '@ionic-native/firebase'; // import Firebase
 import { HttpModule } from '@angular/http';
-import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { DatabaseServiceProvider } from '../providers/database-service/database-service';
@@ -69,7 +62,6 @@ const firebaseConfig = {
     AboutPage,
     ContactPage,
     HomePage,
-    UserPlantPage,
     TabsPage,
     DatabasePlantsPage,
     SettingsPage,
@@ -81,8 +73,6 @@ const firebaseConfig = {
     ProfilePage,
     CollectionPage,
     AddUserPlantPage
-    MailAuthPage,
-    MailCreateAccountPage
   ],
   imports: [
     BrowserModule,
@@ -99,7 +89,6 @@ const firebaseConfig = {
     AboutPage,
     ContactPage,
     HomePage,
-    UserPlantPage,
     TabsPage,
     DatabasePlantsPage,
     SettingsPage,
@@ -111,8 +100,6 @@ const firebaseConfig = {
     ProfilePage,
     CollectionPage,
     AddUserPlantPage
-    MailAuthPage,
-    MailCreateAccountPage
   ],
   providers: [
     StatusBar,
@@ -122,8 +109,7 @@ const firebaseConfig = {
     Geolocation,
     SettingsProvider,
     InAppBrowser,
-    Camera 
-    InAppBrowser
+    Camera
   ]
 })
 export class AppModule {}

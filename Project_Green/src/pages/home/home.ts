@@ -4,8 +4,6 @@ import { DatabaseServiceProvider } from '../../providers/database-service/databa
 import { FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { LoginPage } from '../login/login';
-import { MailAuthPage } from '../mail-auth/mail-auth';
 import { ModalController, Platform } from 'ionic-angular';
 
 import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
@@ -24,17 +22,9 @@ export class HomePage {
     this.accounts = this.db.listAccounts();
     this.blossomcolor = this.db.listBlossomColor();
 
-
     console.log(this.auth.auth.currentUser);
   }
 
-  /**
-   * Signs into the Database with a Mail and Password (that is already in the user base)
-   */
-  public signInWithMail() {
-    var modal = this.modalCtrl.create(MailAuthPage);
-    modal.present();
-  }
   /**
    * Signs into the Database with a GitHub account
    */

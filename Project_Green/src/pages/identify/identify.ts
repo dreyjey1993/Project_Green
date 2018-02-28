@@ -4,7 +4,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DatabaseServiceProvider } from '../../providers/database-service/database-service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireDatabase } from 'angularfire2/database';
-import * as firebase from 'firebase/app';
 import * as lodash from 'lodash';
 
 
@@ -97,7 +96,7 @@ export class IdentifyPage {
  filterExact(property: string, rule: any) {
   this.filters[property] = val => {
     let counter: number = 0;
-    
+
     for(let i of rule)
       for(let j of val)
         if(i == j)
